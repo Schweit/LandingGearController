@@ -39,14 +39,12 @@ class ModeSwitch:
             self.MODE = 1 if self.MODE == 0 else 0
             ledPanel.modeTransition(self.MODE, lastLandingGearPosition)
             self.MODE_TRANSITIONING = False
-
-
+            
     def getCurrentMode(self):
         return self.MODE
 
-
+    
 class Led:
-    # Output
     def __init__(self, redLed, greenLed):
         self.RED = redLed
         self.GREEN = greenLed
@@ -149,8 +147,6 @@ class LedPanel:
             self._allGreen()
             time.sleep(0.20)
             counter += 1
-        print(mode)
-        print(landingGearSwitchPosition)
         if mode == 0 and landingGearSwitchPosition == 0:
             self._allRed()
         if mode == 1 or (mode == 0 and landingGearSwitchPosition == 1):
